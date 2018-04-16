@@ -12,8 +12,8 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="listar_filas_exibir">Consultar Chamados</a>
-                    </li>
+                    <li><a href="listar_filas_exibir">Consultar Chamados</a></li>
+                    <li><a href="listar_filas">Consultar Filas</a></li>
                 </ul>
             </div>
         </div>

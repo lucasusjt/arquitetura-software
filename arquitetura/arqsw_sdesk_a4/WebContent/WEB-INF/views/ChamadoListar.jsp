@@ -33,6 +33,7 @@
             <div id="actions" class="row">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary" name="acao" value="ListarChamadosExibir">Listar Chamados</button>
+                    <a href="novoChamado" class="btn btn-success"> Novo Chamado</a>
                     <a href="index" class="btn btn-default">Cancelar</a>
                 </div>
             </div>

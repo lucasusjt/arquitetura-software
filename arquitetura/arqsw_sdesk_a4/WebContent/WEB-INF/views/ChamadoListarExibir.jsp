@@ -13,13 +13,14 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
-
 <body>
     <!-- Barra superior com os menus de navegação -->
     <c:import url="Menu.jsp" />
     <!-- Container Principal -->
     <div id="main" class="container">
-        <h3 class="page-header">Chamado(s) da Fila ${fila.nome}</h3>
+        <h3 class="page-header">Chamado(s) da Fila ${fila.nome}</h3> 
+        <br>
+       
         <c:if test="${not empty chamados}">
             <div class="table-responsive col-md-12">
                 <table class="table table-striped">
@@ -31,6 +32,7 @@
                             <th>Fechamento</th>
                             <th>Status</th>
                             <th>Tempo (dias)</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,7 +47,13 @@
                                     <fmt:formatDate value="${chamado.dataFechamento }" pattern="dd/MM/yyyy" />
                                 </td>
                                 <td>${chamado.status }</td>
-                                <td align="right"><fmt:formatNumber type="number" value="${chamado.tempoDias}"/></td>
+                                <td align="left"><fmt:formatNumber type="number" value="${chamado.tempoDias}"/></td>
+                                <td><p data-placement="top" data-toggle="tooltip"
+								title="Delete">
+								<a class="btn btn-danger btn-sm" href="excluir_chamado?id=">
+									<span class="glyphicon glyphicon-trash"></span>
+								</a>
+								</p></td>
                             </tr>
                         </c:forEach>
                     </tbody>
