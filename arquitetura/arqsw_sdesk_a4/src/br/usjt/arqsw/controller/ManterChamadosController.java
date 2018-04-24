@@ -23,7 +23,7 @@ import br.usjt.arqsw.service.ChamadoService;
 import br.usjt.arqsw.service.FilaService;
 /**
  * 
- * @author agnaldo
+ * @author Lucas
  *
  */
 @Transactional
