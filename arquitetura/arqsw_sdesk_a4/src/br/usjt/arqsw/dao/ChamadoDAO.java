@@ -40,6 +40,12 @@ public class ChamadoDAO {
 		return result;
 	}
 	
+	
+	public List<Chamado> listarTodosChamados() throws IOException{
+		return manager.createQuery("select c from Chamado c").getResultList();
+
+	}
+	
 	public List<Chamado> listarChamados(Fila fila) throws IOException{
 		//conectei minha fila com a persistencia
 				fila = manager.find(Fila.class, fila.getId());

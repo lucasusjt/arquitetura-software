@@ -36,5 +36,8 @@ public class FilaService {
 	public String excluirFila(Fila fila) throws IOException {
 		return dao.excluirFila(fila);
 	}
+	public String salvarAltFila(Fila fila) throws IOException{
+		return dao.salvarAltFila(fila);
+	}
 	
 }

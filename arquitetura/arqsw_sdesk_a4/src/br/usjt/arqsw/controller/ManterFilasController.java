@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.usjt.arqsw.entity.Chamado;
 import br.usjt.arqsw.entity.Fila;
 import br.usjt.arqsw.service.FilaService;
 
@@ -60,7 +59,13 @@ public class ManterFilasController {
 	public String novoChamado(Model model) {
 		return "NovaFila";
 	}
-
+	
+	@RequestMapping("/novoFila")
+	public String novoFila(Model model) {
+		return "NovaFila";
+	}
+	
+	
 	@RequestMapping("/salvarFila")
 	public String salvarChamado(Fila fila, BindingResult result, Model model) {
 
@@ -76,7 +81,7 @@ public class ManterFilasController {
 	}
 	
 	@RequestMapping("/excluir_fila")
-	public String excluirChamado(int id, Model model) {
+	public String excluirFila(int id, Model model) {
 		try {
 			Fila fila = new Fila();
 			fila.setId(id);
@@ -88,6 +93,47 @@ public class ManterFilasController {
 		}
 		return "FilaListar"; 
 	}
+	
+	@RequestMapping("/mostrarFila")
+	public String mostrarFila(int id, Model model) {
+		try {
+			Fila fila = filaService.carregar(id);
+			model.addAttribute("fila", fila);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "MostrarFila"; 
+	}
+	
+	@RequestMapping("/alterarFila")
+	public String alterarFila(int id, Model model) {
+		try {
+			Fila fila = filaService.carregar(id);
+			model.addAttribute("fila", fila);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "AlterarFila"; 
+	}
+	
+	
+	
+	@RequestMapping("/salvarAltFila")
+	public String salvarAltFila(Fila fila, BindingResult result, Model model) {
+
+		try {
+			String teste = filaService.salvarAltFila(fila);
+			System.out.println(teste);
+			model.addAttribute("filas", listarFilas());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "FilaListar";
+	}
+	
 	
 	
 }

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 @Entity
 public class Fila {
@@ -19,6 +20,17 @@ public class Fila {
 	@Column(name="nm_fila")
 	private String nome;
 	
+	@Null
+	@Size(max=256)
+	@Column(name="caminho_figura")
+	private String figura;
+	
+	public String getFigura() {
+		return figura;
+	}
+	public void setFigura(String figura) {
+		this.figura = figura;
+	}
 	public int getId() {
 		return id;
 	}

@@ -27,6 +27,16 @@ public class FilaDAO {
 		return "Removido";
 	}
 	
+	public String salvarAltFila(Fila fila) throws IOException {
+		String jpql = "UPDATE Fila f SET f.nome = :p  WHERE f.id = :e ";
+		Query query = manager.createQuery(jpql);
+		query.setParameter("e", fila.getId());
+		query.setParameter("p", fila.getNome());
+		query.executeUpdate();
+		return fila.getNome();
+	}
+	
+	
 	
 	public List<Fila> listarFilas() throws IOException {
 		return manager.createQuery("select f from Fila f").getResultList();
